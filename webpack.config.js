@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
 
 module.exports = {
     mode: 'development',
@@ -13,6 +14,8 @@ module.exports = {
             directory: path.join(__dirname, 'dist'),
             watch: true,
         },
+        hot: true,
+        historyApiFallback: true,
     },
     module: {
         rules: [
@@ -29,12 +32,23 @@ module.exports = {
                     'style-loader',
                     'css-loader',
                 ]
-            }
+            },
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
         ]
+    },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: './public/index.html',
+        }),
+        new webpack.ProvidePlugin({
+            _: 'lodash',
         })
     ],
    

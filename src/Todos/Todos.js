@@ -50,7 +50,7 @@ export default function Todos() {
     
 
     return(
-        <>
+       <div> 
         <h1>Todos</h1>
         
         {todo.map((item) => (
@@ -58,6 +58,6 @@ export default function Todos() {
           <p>{item.title}</p>
         </div>
       ))}
-        </>
+      </div>
     )
 }
