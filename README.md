@@ -2,4 +2,4 @@
  
 Module Bundler - Webpack 
 
-ReactJS + vanilla JS 
+ReactJS + vanilla JS + TS
